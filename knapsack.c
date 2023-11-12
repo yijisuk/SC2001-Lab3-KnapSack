@@ -14,7 +14,7 @@ int knapsack(int W, int wt[], int profit[], int n)
     for (i = 0; i <= W; i++)
         dp[i] = 0;
 
-    // Fill dp[] using above recursive formula
+    // Fill dp[] using the algorithm
     for (i = 0; i <= W; i++)
     {
         for (int j = 0; j < n; j++)
@@ -24,6 +24,7 @@ int knapsack(int W, int wt[], int profit[], int n)
                 dp[i] = max(dp[i], dp[i - wt[j]] + profit[j]);
             }
         }
+        printf("dp[%d]: %d\n", i, dp[i]); // Print the current value of dp[i]
     }
 
     return dp[W];
@@ -40,12 +41,12 @@ int max(int a, int b)
 int main()
 {
     // 4-a)
-    // int profit[] = {7, 6, 9};
-    // int wt[] = {4, 6, 8};
+    int profit[] = {7, 6, 9};
+    int wt[] = {4, 6, 8};
 
     // 4-b)
-    int profit[] = {7, 6, 9};
-    int wt[] = {5, 6, 8};
+    // int profit[] = {7, 6, 9};
+    // int wt[] = {5, 6, 8};
 
     int W = 14;
     int n = sizeof(profit) / sizeof(profit[0]);
